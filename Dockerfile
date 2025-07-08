@@ -1,25 +1,31 @@
-# Use an official Python image
+# Use official Python base image
 FROM python:3.10-slim
 
-# Set work directory
+# Set working directory
 WORKDIR /app
 
-# Install required system packages
+# Install required system dependencies
 RUN apt-get update && apt-get install -y \
     build-essential \
     libgl1-mesa-glx \
     libglib2.0-0 \
+    libsm6 \
+    libxext6 \
+    libxrender-dev \
+    wget \
+    git \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy project files
+# Install Python dependencies
+COPY requirements.txt .
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application
 COPY . .
 
-# Install Python dependencies
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-
-# Expose the port Railway uses
+# Set environment variable for Flask port
 ENV PORT 5000
 
-# Run the app
+# Command to run the Flask app
 CMD ["python", "app.py"]
