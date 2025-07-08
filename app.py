@@ -13,7 +13,7 @@ app = Flask(__name__)
 
 # Load models
 crop_model = pickle.load(open('models/Crop_Recommendation.pkl', 'rb'))
-pest_model = load_model("models/pest_model.keras", compile=False)
+pest_model = load_model("models/pest_model.h5", compile=False)
 
 # Load fertilizer dictionary
 from utils.fertilizer import fertilizer_dic
