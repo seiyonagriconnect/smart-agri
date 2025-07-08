@@ -169,7 +169,7 @@
                 "name_en": "Deltamethrin",
                 "dosage_ta": "2 மில்லி / 1 லிட்டர் தண்ணீர்",
                 "dosage_en": "2 ml per 1 liter of water",
-                "image": "static/pesticides/deltamethrin.jpg"
+                "image": "static/pesticides/deltamethrin.png"
             }
         ],
         "usage_ta": "காலை நேரத்தில் இலைகளின் மேல் தெளிக்கவும்.",
@@ -184,7 +184,7 @@
                 "name_en": "Chlorantraniliprole",
                 "dosage_ta": "3 மில்லி / 1 லிட்டர் தண்ணீர்",
                 "dosage_en": "3 ml per 1 liter of water",
-                "image": "static/pesticides/chlorantraniliprole.jpg"
+                "image": "static/pesticides/hlorantraniliprole.jpg"
             },
             {
                 "name_ta": "ஃபைப்ரோநில்",
