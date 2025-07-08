@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% block title %}Fertilizer{% endblock title %}
+{% block body %}
+
+<style>
+    .hero-image {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("/static/images/4.jpeg");
+        height: 50vh;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+
+    .hero-text {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+
+    .backgr-image {
+        background-image: linear-gradient(rgba(0, 0, 0.1, 0.1), rgba(0, 0, 0.1, 0.1)), url("/static/images/1.jpeg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: white;
+        padding: 40px;
+        border-radius: 8px;
+    }
+</style>
+
+<!-- Hero Section -->
+<div class="hero-image">
+    <div class="hero-text">
+        <p class="breadcrumbs text-white font-weight-bold">
+            <a href="{{ url_for('main_index') }}" class="text-white">Home /</a>
+            <span>Fertilizer recommendation</span>
+        </p>
+        <h1 class="mb-0 bread font-weight-bold">Get Informed Fertilizer Advice Based on Soil</h1>
+    </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav mx-auto">
+            <a class="nav-item nav-link active" href="{{ url_for('main_index') }}">Home</a>
+            <a class="nav-item nav-link" href="{{ url_for('crop_recommend') }}">Crop</a>
+            <a class="nav-item nav-link" href="{{ url_for('fertilizer_recommendation') }}">Fertilizer</a>
+            <a class="nav-item nav-link " href="{{ url_for('pesticide_recommendation') }}">Pesticide</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Fertilizer Form -->
+<div class="container my-5">
+    <div class="backgr-image">
+        <form method="POST" action="{{ url_for('fert_recommend') }}" class="text-uppercase font-weight-bold">
+            <div class="form-group">
+                <label for="Nitrogen">Nitrogen</label>
+                <input type="number" class="form-control" name="nitrogen" id="Nitrogen"
+                    placeholder="Enter nitrogen value" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Phosphorous">Phosphorous</label>
+                <input type="number" class="form-control" name="phosphorous" id="Phosphorous"
+                    placeholder="Enter phosphorous value" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Pottasium">Potassium</label>
+                <input type="number" class="form-control" name="pottasium" id="Pottasium"
+                    placeholder="Enter potassium value" required>
+            </div>
+
+            <div class="form-group">
+                <label for="crop">Crop You Want to Grow</label>
+                <select class="form-control" name="cropname" id="crop" required>
+                    <option disabled selected>Select Crop</option>
+                    <option>rice</option>
+                    <option>maize</option>
+                    <option>chickpea</option>
+                    <option>kidneybeans</option>
+                    <option>pigeonpeas</option>
+                    <option>mothbeans</option>
+                    <option>mungbean</option>
+                    <option>blackgram</option>
+                    <option>lentil</option>
+                    <option>pomegranate</option>
+                    <option>banana</option>
+                    <option>mango</option>
+                    <option>grapes</option>
+                    <option>watermelon</option>
+                    <option>muskmelon</option>
+                    <option>apple</option>
+                    <option>orange</option>
+                    <option>papaya</option>
+                    <option>coconut</option>
+                    <option>cotton</option>
+                    <option>jute</option>
+                    <option>coffee</option>
+                </select>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-dark btn-lg">Predict</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-5">
+    <div class="text-center py-3 text-light bg-dark"
+        style="background-image: url('https://images.pexels.com/photos/5980/food-sunset-love-field.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); background-size: cover; height: 100px; background-position: center;">
+        <h5>© 2025 : Smart Agriculture System</h5>
+        <div class="text-uppercase font-weight-bold">Go Green....</div>
+    </div>
+</footer>
+
+{% endblock %}

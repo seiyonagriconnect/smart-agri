@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seiyon Agri Connect</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Noto+Sans:wght@400;500;700;900&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <style>
+    body {
+      font-family: Manrope, "Noto Sans", sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-[#f9fbf9]">
+  <div class="relative flex min-h-screen flex-col bg-[#f9fbf9] overflow-x-hidden">
+    <header
+      class="flex items-center justify-between border-b border-b-[#ebf2e9] px-4 sm:px-10 py-3 relative z-50 bg-white">
+      <!-- Logo -->
+      <div class="flex items-center gap-4 text-[#1a3c18]">
+        <!-- Stylish Green Logo with New Shade -->
+        <div class="w-10 h-10 p-2 rounded-full bg-[#d3f2c4] flex items-center justify-center text-[#34a853]">
+          <svg viewBox="0 0 48 48" fill="none" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z"
+              fill="currentColor" />
+          </svg>
+        </div>
+
+        <!-- Title with richer green -->
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#1a3c18]">Seiyon Agri Connect</h2>
+      </div>
+
+
+      <!-- Hamburger Button -->
+      <button id="menu-toggle" class="block lg:hidden text-[#121a0f] focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Navigation Menu -->
+      <!-- Navigation Menu -->
+      <div id="nav-menu"
+        class="hidden lg:flex flex-col lg:flex-row items-start lg:items-center absolute lg:static top-full left-0 w-full lg:w-auto bg-white lg:bg-transparent px-4 lg:px-0 pt-4 lg:pt-0 shadow lg:shadow-none z-40">
+
+        <nav class="flex flex-col lg:flex-row gap-4 lg:gap-6 w-full lg:w-auto text-center lg:text-left">
+          <a class="text-sm font-medium text-[#121a0f] hover:text-green-600 transition"
+            href="{{ url_for('home') }}">Home</a>
+          <a class="text-sm font-medium text-[#121a0f] hover:text-green-600 transition"
+            href="{{ url_for('subscription_plans') }}">Subscription Plans</a>
+          <a class="text-sm font-medium text-[#121a0f] hover:text-green-600 transition"
+            href="{{ url_for('pickup_points') }}">Pickup Points</a>
+          <a class="text-sm font-medium text-[#121a0f] hover:text-green-600 transition"
+            href="{{ url_for('for_farmers') }}">For Farmers</a>
+          <a class="text-sm font-medium text-[#121a0f] hover:text-green-600 transition"
+            href="{{ url_for('pre_launch_offer') }}">Pre-launch Offer</a>
+          <a class="text-sm font-medium text-[#121a0f] hover:text-green-600 transition"
+            href="{{ url_for('support') }}">Support</a>
+        </nav>
+
+        <button
+          class="mt-4 lg:mt-0 lg:ml-6 w-full lg:w-auto h-10 px-5 bg-[#53d22c] hover:bg-[#3ebd1a] text-sm font-bold text-white rounded-full transition duration-300">
+          Sign Up
+        </button>
+      </div>
+
+    </header>
+
+    <div class="px-4 sm:px-10 md:px-20 lg:px-40 flex flex-1 justify-center py-5">
+      <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+        <div class="@container">
+          <div class="@[480px]:p-4">
+            <div
+              class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10"
+              style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAgHVQ75OS_gBg_L0Q7ZaFZc2imyIeZqRM2UeIWKxBVpOk2ys9YY5cToRpAQJGOHluY9R1ertwhgaDnhMErDfzVoj-pcm8z6xsPPfGy3I-6u6ZV1T5G6pi_a5PI0CGuv_JS0Oyx4jhP7rq4bsqjf-WPa7c7kg7Q5QmdR4VaE77-wPTVqKNG53eFwgp_TVaHNnr-y-bHeZXPs_Bc-yBORlRQJsp1iEjo3vr-zXuHlRXFyLyM3GUrPYxDMMewpIGC-exMzeMfReToHzcC");'>
+              <div class="flex flex-col gap-2 text-left">
+                <h1
+                  class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                  Grow More. Sell Smarter.
+                </h1>
+                <h2
+                  class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                  Join Seiyon Agri Connect and connect directly with local stores for better prices and reliable sales.
+                </h2>
+              </div>
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#53d22c] text-[#121a0f] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+                <span class="truncate">Register Now</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-10 px-4 py-10 @container">
+          <div class="flex flex-col gap-4">
+            <h1
+              class="text-[#121a0f] tracking-light text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em] max-w-[720px]">
+              Support Benefits
+            </h1>
+            <p class="text-[#121a0f] text-base font-normal leading-normal max-w-[720px]">We provide comprehensive
+              support to help you succeed.</p>
+          </div>
+          <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-0">
+            <div class="flex flex-1 gap-3 rounded-lg border border-[#d6e5d2] bg-[#f9fbf9] p-4 flex-col">
+              <div class="text-[#121a0f]" data-icon="CurrencyDollar" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path
+                    d="M152,120H136V56h8a32,32,0,0,1,32,32,8,8,0,0,0,16,0,48.05,48.05,0,0,0-48-48h-8V24a8,8,0,0,0-16,0V40h-8a48,48,0,0,0,0,96h8v64H104a32,32,0,0,1-32-32,8,8,0,0,0-16,0,48.05,48.05,0,0,0,48,48h16v16a8,8,0,0,0,16,0V216h16a48,48,0,0,0,0-96Zm-40,0a32,32,0,0,1,0-64h8v64Zm40,80H136V136h16a32,32,0,0,1,0,64Z">
+                  </path>
+                </svg>
+              </div>
+              <div class="flex flex-col gap-1">
+                <h2 class="text-[#121a0f] text-base font-bold leading-tight">Advance Payments</h2>
+                <p class="text-[#639155] text-sm font-normal leading-normal">Receive advance payments to cover your
+                  farming costs.</p>
+              </div>
+            </div>
+            <div class="flex flex-1 gap-3 rounded-lg border border-[#d6e5d2] bg-[#f9fbf9] p-4 flex-col">
+              <div class="text-[#121a0f]" data-icon="Truck" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path
+                    d="M247.42,117l-14-35A15.93,15.93,0,0,0,218.58,72H184V64a8,8,0,0,0-8-8H24A16,16,0,0,0,8,72V184a16,16,0,0,0,16,16H41a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,247.42,117ZM184,88h34.58l9.6,24H184ZM24,72H168v64H24ZM72,208a16,16,0,1,1,16-16A16,16,0,0,1,72,208Zm81-24H103a32,32,0,0,0-62,0H24V152H168v12.31A32.11,32.11,0,0,0,153,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,184,208Zm48-24H215a32.06,32.06,0,0,0-31-24V128h48Z">
+                  </path>
+                </svg>
+              </div>
+              <div class="flex flex-col gap-1">
+                <h2 class="text-[#121a0f] text-base font-bold leading-tight">Delivery Support</h2>
+                <p class="text-[#639155] text-sm font-normal leading-normal">We handle the logistics of delivering your
+                  produce to stores.</p>
+              </div>
+            </div>
+            <div class="flex flex-1 gap-3 rounded-lg border border-[#d6e5d2] bg-[#f9fbf9] p-4 flex-col">
+              <div class="text-[#121a0f]" data-icon="ShieldCheck" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path
+                    d="M208,40H48A16,16,0,0,0,32,56v58.78c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z">
+                  </path>
+                </svg>
+              </div>
+              <div class="flex flex-col gap-1">
+                <h2 class="text-[#121a0f] text-base font-bold leading-tight">Guaranteed Buy-Back</h2>
+                <p class="text-[#639155] text-sm font-normal leading-normal">We guarantee to buy back your produce at
+                  agreed prices.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agri Support Section -->
+        <section class="py-16 px-4 text-center overflow-hidden relative bg-[#f9fbf9]">
+          <!-- Heading -->
+          <h2 class="text-3xl md:text-4xl font-extrabold text-[#121a0f] mb-4 animate-fade-up">
+            For Agri Support
+          </h2>
+          <p class="text-[#555] text-lg md:text-xl mb-10 animate-fade-up delay-100">
+            Empowering farmers with the right insights for better yield and healthier crops.
+          </p>
+
+          <!-- Recommendations Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto animate-fade-up delay-200">
+
+            <!-- Crop Recommendation -->
+            <div class="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition-all duration-300">
+              <h3 class="text-xl font-bold text-[#121a0f] mb-2">🌾 Crop Recommendation</h3>
+              <p class="text-[#333] text-sm">
+                Get personalized suggestions on which crops to grow based on soil, season, and region.
+              </p>
+            </div>
+
+            <!-- Fertilizer Recommendation -->
+            <div class="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition-all duration-300">
+              <h3 class="text-xl font-bold text-[#121a0f] mb-2">🧪 Fertilizer Recommendation</h3>
+              <p class="text-[#333] text-sm">
+                Find the right fertilizers to boost soil health and plant growth.
+              </p>
+            </div>
+
+            <!-- Pesticides Recommendation -->
+            <div class="bg-white rounded-2xl p-6 shadow hover:shadow-lg transition-all duration-300">
+              <h3 class="text-xl font-bold text-[#121a0f] mb-2">🐛 Pesticides Recommendation</h3>
+              <p class="text-[#333] text-sm">
+                Get suggestions for safe and effective pesticides tailored to your crops.
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Launching Soon CTA -->
+<div class="mt-16 text-center">
+  <a href="/smart-agri"
+     class="inline-block px-8 py-3 text-white text-lg font-semibold bg-gradient-to-r from-green-500 to-lime-500 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition transform duration-300 ease-in-out">
+    🚀 Click Here
+  </a>
+</div>
+
+
+
+        </section>
+
+        <style>
+          @keyframes fadeUp {
+            from {
+              opacity: 0;
+              transform: translateY(20px);
+            }
+
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          .animate-fade-up {
+            animation: fadeUp 0.8s ease-out both;
+          }
+
+          .animate-fade-up.delay-100 {
+            animation-delay: 0.1s;
+          }
+
+          .animate-fade-up.delay-200 {
+            animation-delay: 0.2s;
+          }
+
+          .animate-pulse {
+            animation: pulse 1.5s infinite;
+          }
+        </style>
+
+        <!-- Registration Form Heading -->
+        <h2
+          class="text-[#121a0f] text-[24px] md:text-[28px] font-extrabold leading-tight tracking-tight px-4 pb-3 pt-8">
+          📝 Farmer Registration Form
+        </h2>
+
+        <!-- Registration Form Container -->
+        <div class="max-w-xl w-full mx-auto bg-white shadow-md rounded-2xl border border-[#e2f0da] p-6 mt-4">
+
+          <!-- Name -->
+          <div class="mb-5">
+            <label class="block text-[#121a0f] text-base font-semibold mb-2">Name</label>
+            <input type="text" placeholder="Enter your name"
+              class="w-full bg-[#f0f8ee] border border-[#cde5c2] rounded-xl px-4 py-3 text-[#121a0f] placeholder-[#6ca26d] focus:outline-none focus:ring-2 focus:ring-[#53d22c]" />
+          </div>
+
+          <!-- Mobile Number -->
+          <div class="mb-5">
+            <label class="block text-[#121a0f] text-base font-semibold mb-2">Mobile Number</label>
+            <input type="text" placeholder="Enter your mobile number"
+              class="w-full bg-[#f0f8ee] border border-[#cde5c2] rounded-xl px-4 py-3 text-[#121a0f] placeholder-[#6ca26d] focus:outline-none focus:ring-2 focus:ring-[#53d22c]" />
+          </div>
+
+          <!-- State -->
+          <div class="mb-5">
+            <label class="block text-[#121a0f] text-base font-semibold mb-2">State</label>
+            <select
+              class="w-full bg-[#f0f8ee] border border-[#cde5c2] rounded-xl px-4 py-3 text-[#121a0f] placeholder-[#6ca26d] focus:outline-none focus:ring-2 focus:ring-[#53d22c]">
+              <option>Select your state</option>
+              <option>Tamil Nadu</option>
+              <option>Kerala</option>
+              <option>Karnataka</option>
+            </select>
+          </div>
+
+          <!-- District -->
+          <div class="mb-5">
+            <label class="block text-[#121a0f] text-base font-semibold mb-2">District</label>
+            <select
+              class="w-full bg-[#f0f8ee] border border-[#cde5c2] rounded-xl px-4 py-3 text-[#121a0f] placeholder-[#6ca26d] focus:outline-none focus:ring-2 focus:ring-[#53d22c]">
+              <option>Select your district</option>
+              <option>Chennai</option>
+              <option>Madurai</option>
+              <option>Coimbatore</option>
+            </select>
+          </div>
+
+          <!-- Crops Grown -->
+          <div class="mb-5">
+            <label class="block text-[#121a0f] text-base font-semibold mb-2">Crops Grown</label>
+            <input type="text" placeholder="Enter the crops you grow"
+              class="w-full bg-[#f0f8ee] border border-[#cde5c2] rounded-xl px-4 py-3 text-[#121a0f] placeholder-[#6ca26d] focus:outline-none focus:ring-2 focus:ring-[#53d22c]" />
+          </div>
+
+          <!-- Submit Button -->
+          <div class="pt-2">
+            <button
+              class="w-full h-12 bg-[#53d22c] hover:bg-[#45b924] transition-all duration-200 text-[#121a0f] font-bold rounded-full shadow-md text-sm uppercase tracking-wide">
+              Submit
+            </button>
+          </div>
+        </div>
+
+        <h2 class="text-[#121a0f] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Crops by State
+        </h2>
+        <div class="flex flex-col p-4 gap-3">
+          <details class="flex flex-col rounded-xl border border-[#d6e5d2] bg-[#f9fbf9] px-[15px] py-[7px] group"
+            open="">
+            <summary class="flex cursor-pointer items-center justify-between gap-6 py-2">
+              <p class="text-[#121a0f] text-sm font-medium leading-normal">Tamil Nadu</p>
+              <div class="text-[#121a0f] group-open:rotate-180" data-icon="CaretDown" data-size="20px"
+                data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path
+                    d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z">
+                  </path>
+                </svg>
+              </div>
+            </summary>
+            <p class="text-[#639155] text-sm font-normal leading-normal pb-2">Rice, Sugarcane, Cotton, Groundnut,
+              Millets, Pulses, Coconut, Banana, Mango, Cashew</p>
+          </details>
+          <details class="flex flex-col rounded-xl border border-[#d6e5d2] bg-[#f9fbf9] px-[15px] py-[7px] group">
+            <summary class="flex cursor-pointer items-center justify-between gap-6 py-2">
+              <p class="text-[#121a0f] text-sm font-medium leading-normal">Kerala</p>
+              <div class="text-[#121a0f] group-open:rotate-180" data-icon="CaretDown" data-size="20px"
+                data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path
+                    d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z">
+                  </path>
+                </svg>
+              </div>
+            </summary>
+            <p class="text-[#639155] text-sm font-normal leading-normal pb-2">Rice, Sugarcane, Cotton, Groundnut,
+              Millets, Pulses, Coconut, Banana, Mango, Cashew</p>
+          </details>
+          <details class="flex flex-col rounded-xl border border-[#d6e5d2] bg-[#f9fbf9] px-[15px] py-[7px] group">
+            <summary class="flex cursor-pointer items-center justify-between gap-6 py-2">
+              <p class="text-[#121a0f] text-sm font-medium leading-normal">AP</p>
+              <div class="text-[#121a0f] group-open:rotate-180" data-icon="CaretDown" data-size="20px"
+                data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path
+                    d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z">
+                  </path>
+                </svg>
+              </div>
+            </summary>
+            <p class="text-[#639155] text-sm font-normal leading-normal pb-2">Rice, Sugarcane, Cotton, Groundnut,
+              Millets, Pulses, Coconut, Banana, Mango, Cashew</p>
+          </details>
+          <details class="flex flex-col rounded-xl border border-[#d6e5d2] bg-[#f9fbf9] px-[15px] py-[7px] group">
+            <summary class="flex cursor-pointer items-center justify-between gap-6 py-2">
+              <p class="text-[#121a0f] text-sm font-medium leading-normal">Karnataka</p>
+              <div class="text-[#121a0f] group-open:rotate-180" data-icon="CaretDown" data-size="20px"
+                data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path
+                    d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z">
+                  </path>
+                </svg>
+              </div>
+            </summary>
+            <p class="text-[#639155] text-sm font-normal leading-normal pb-2">Rice, Sugarcane, Cotton, Groundnut,
+              Millets, Pulses, Coconut, Banana, Mango, Cashew</p>
+          </details>
+        </div>
+        <h2 class="text-[#121a0f] text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Sample
+          Contract Section</h2>
+        <p class="text-[#121a0f] text-base font-normal leading-normal pb-3 pt-1 px-4">
+          - Contract Duration: 1 year - Pricing: Based on market rates at the time of harvest - Payment Terms: Advance
+          payment of 50% upon signing, remaining 50% upon delivery
+          - Quality Standards: Produce must meet specified quality standards - Dispute Resolution: Any disputes will be
+          resolved through mediation
+        </p>
+        <div class="flex px-4 py-3 justify-start">
+          <button
+            class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#ebf2e9] text-[#121a0f] text-sm font-bold leading-normal tracking-[0.015em]">
+            <span class="truncate">Download Sample Contract</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <footer class="flex justify-center">
+      <div class="flex max-w-[960px] flex-1 flex-col">
+        <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="#">
+              <div class="text-[#639155]" data-icon="FacebookLogo" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path
+                    d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z">
+                  </path>
+                </svg>
+              </div>
+            </a>
+            <a href="#">
+              <div class="text-[#639155]" data-icon="TwitterLogo" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path
+                    d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z">
+                  </path>
+                </svg>
+              </div>
+            </a>
+            <a href="#">
+              <div class="text-[#639155]" data-icon="InstagramLogo" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path
+                    d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z">
+                  </path>
+                </svg>
+              </div>
+            </a>
+          </div>
+          <p class="text-[#639155] text-base font-normal leading-normal">© 2025 Seiyon Agri Connect. All rights
+            reserved.</p>
+        </footer>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+
+</html>

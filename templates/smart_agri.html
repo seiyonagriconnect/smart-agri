@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block body %}
+<style>
+  body {
+    font-family: 'Manrope', 'Noto Sans', sans-serif;
+  }
+</style>
+
+
+<!-- Hero Section -->
+<div class="hero-image1">
+    <div class="hero-text1">
+        <h2 class="breadcrumbs text-white display-3" style="font-family: 'Amatic SC', cursive; font-weight: bolder;">
+            <span class="mr-2"> Smart Agriculture System </span>
+        </h2>
+        <p class="mb-0 bread font-weight-bold">
+            Get information details about your Farming Strategy
+        </p>
+        <br />
+        <p><a href="#services" class="btn view rounded-pill">Explore Services</a></p>
+    </div>
+</div>
+<br />
+
+<!-- About Us -->
+<section>
+    <div class="container">
+        <h1 class="text-center text-capitalize pt-5" style="font-family: 'Arima Madurai', cursive;">About Us</h1>
+        <hr class="w-25 mx-auto" />
+        <div class="row mb-5">
+            <div class="col-lg-6 col-md-6 col-12">
+                <figure class="snip1256">
+                    <img src="{{ url_for('static', filename='images/3.jpeg') }}" alt="sample42" />
+                    <figcaption>
+                        <h3>Hope You Like It...</h3>
+                        <h4 class="mt-4 mb-4">Smart Agriculture System</h4>
+                        <a href="#" class="read-more">Read More</a>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="col-lg-6" style="font-family: 'Arima Madurai', cursive;">
+                <h3 class="mt-4">
+                    Improving Agriculture, Improving Lives, Cultivating Crops To Make Farmers Increase Profit.
+                </h3>
+                <p class="mt-3" style="line-height: 1.6">
+                    We use state-of-the-art machine learning and deep learning technologies to help you guide through the entire farming process. Make informed decisions to understand the demographics of your area, understand the factors that affect your crop and keep them healthy for a successful yield.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services -->
+<section id="services">
+    <div class="container">
+        <h1 class="text-center text-capitalize pt-5" style="font-family: 'Arima Madurai', cursive;">Our Services</h1>
+        <hr class="w-25 mx-auto" />
+        <div class="row text-center mb-5 p-3">
+            <div class="col-lg-4 col-md-4 col-12">
+                <div class="card bg-dark text-white card1">
+                    <img class="card-img-top" src="{{ url_for('static', filename='images/a.jpg') }}" alt="Crop" />
+                    <div class="card-body">
+                        <h4 class="card-title">Crop Recommendation</h4>
+                        <p class="card-text">Get best crop suggestions for your farm based on soil and weather.</p>
+                        <a href="{{ url_for('crop_recommend') }}" class="btn view rounded-pill">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-12">
+                <div class="card bg-dark text-white card1">
+                    <img class="card-img-top" src="{{ url_for('static', filename='images/c.jpg') }}" alt="Fertilizer" />
+                    <div class="card-body">
+                        <h4 class="card-title">Fertilizer Suggestion</h4>
+                        <p class="card-text">Get recommendations for the right fertilizer for your soil.</p>
+                        <a href="{{ url_for('fertilizer_recommendation') }}" class="btn view rounded-pill">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-12">
+                <div class="card bg-dark text-white card1">
+                    <img class="card-img-top" src="{{ url_for('static', filename='images/e.jpg') }}" alt="Pesticide" />
+                    <div class="card-body">
+                        <h4 class="card-title">Pest Detection</h4>
+                        <p class="card-text">Upload pest images and get pesticide suggestions instantly.</p>
+                        <a href="{{ url_for('pesticide_recommendation') }}" class="btn view rounded-pill">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue">
+    <div class="footer-copyright text-center py-3 bg-dark text-light">
+        <h5>© 2025 : Smart Agriculture System</h5>
+        <div class="text-uppercase font-weight-bold">Go Green....</div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+{% endblock body %}

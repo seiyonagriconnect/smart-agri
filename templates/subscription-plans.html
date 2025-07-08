@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seiyon Agri Connect</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Noto+Sans:wght@400;500;700;900&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    body {
+      font-family: Manrope, "Noto Sans", sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-[#f9fbf9]">
+  <div class="relative flex min-h-screen flex-col bg-[#f9fbf9] overflow-x-hidden">
+    <header
+      class="flex items-center justify-between border-b border-b-[#ebf2e9] px-4 sm:px-10 py-3 relative z-50 bg-white">
+      <!-- Logo -->
+      <div class="flex items-center gap-4 text-[#1a3c18]">
+        <!-- Stylish Green Logo with New Shade -->
+        <div class="w-10 h-10 p-2 rounded-full bg-[#d3f2c4] flex items-center justify-center text-[#34a853]">
+          <svg viewBox="0 0 48 48" fill="none" class="w-6 h-6" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M39.475 21.6262C40.358 21.4363 40.6863 21.5589 40.7581 21.5934C40.7876 21.655 40.8547 21.857 40.8082 22.3336C40.7408 23.0255 40.4502 24.0046 39.8572 25.2301C38.6799 27.6631 36.5085 30.6631 33.5858 33.5858C30.6631 36.5085 27.6632 38.6799 25.2301 39.8572C24.0046 40.4502 23.0255 40.7407 22.3336 40.8082C21.8571 40.8547 21.6551 40.7875 21.5934 40.7581C21.5589 40.6863 21.4363 40.358 21.6262 39.475C21.8562 38.4054 22.4689 36.9657 23.5038 35.2817C24.7575 33.2417 26.5497 30.9744 28.7621 28.762C30.9744 26.5497 33.2417 24.7574 35.2817 23.5037C36.9657 22.4689 38.4054 21.8562 39.475 21.6262ZM4.41189 29.2403L18.7597 43.5881C19.8813 44.7097 21.4027 44.9179 22.7217 44.7893C24.0585 44.659 25.5148 44.1631 26.9723 43.4579C29.9052 42.0387 33.2618 39.5667 36.4142 36.4142C39.5667 33.2618 42.0387 29.9052 43.4579 26.9723C44.1631 25.5148 44.659 24.0585 44.7893 22.7217C44.9179 21.4027 44.7097 19.8813 43.5881 18.7597L29.2403 4.41187C27.8527 3.02428 25.8765 3.02573 24.2861 3.36776C22.6081 3.72863 20.7334 4.58419 18.8396 5.74801C16.4978 7.18716 13.9881 9.18353 11.5858 11.5858C9.18354 13.988 7.18717 16.4978 5.74802 18.8396C4.58421 20.7334 3.72865 22.6081 3.36778 24.2861C3.02574 25.8765 3.02429 27.8527 4.41189 29.2403Z"
+              fill="currentColor" />
+          </svg>
+        </div>
+
+        <!-- Title with richer green -->
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-[#1a3c18]">Seiyon Agri Connect</h2>
+      </div>
+
+
+      <!-- Hamburger Button -->
+      <button id="menu-toggle" class="block lg:hidden text-[#121a0f] focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Navigation Menu -->
+      <!-- Navigation Menu -->
+      <div id="nav-menu"
+        class="hidden lg:flex flex-col lg:flex-row items-start lg:items-center absolute lg:static top-full left-0 w-full lg:w-auto bg-white lg:bg-transparent px-4 lg:px-0 pt-4 lg:pt-0 shadow lg:shadow-none z-40">
+
+        <nav class="flex flex-col lg:flex-row gap-4 lg:gap-6 w-full lg:w-auto text-center lg:text-left">
+          <a class="text-sm font-medium text-[#121a0f] hover:text-green-600 transition"
+            href="{{ url_for('home') }}">Home</a>
+          <a class="text-sm font-medium text-[#121a0f] hover:text-green-600 transition"
+            href="{{ url_for('subscription_plans') }}">Subscription Plans</a>
+          <a class="text-sm font-medium text-[#121a0f] hover:text-green-600 transition"
+            href="{{ url_for('pickup_points') }}">Pickup Points</a>
+          <a class="text-sm font-medium text-[#121a0f] hover:text-green-600 transition"
+            href="{{ url_for('for_farmers') }}">For Farmers</a>
+          <a class="text-sm font-medium text-[#121a0f] hover:text-green-600 transition"
+            href="{{ url_for('pre_launch_offer') }}">Pre-launch Offer</a>
+          <a class="text-sm font-medium text-[#121a0f] hover:text-green-600 transition"
+            href="{{ url_for('support') }}">Support</a>
+        </nav>
+
+        <button
+          class="mt-4 lg:mt-0 lg:ml-6 w-full lg:w-auto h-10 px-5 bg-[#53d22c] hover:bg-[#3ebd1a] text-sm font-bold text-white rounded-full transition duration-300">
+          Sign Up
+        </button>
+      </div>
+
+    </header>
+    <section class="px-6 py-12 bg-[#f9fbf9]">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-[#121a0f] mb-8">Choose Your Plan</h2>
+
+        <!-- Toggle Switch with Dropdown -->
+        <div class="flex justify-center items-center gap-3 mb-10">
+          <div>
+            <button id="monthlyBtn"
+              class="px-6 py-2 rounded-l-full bg-[#6BA84E] text-white font-semibold transition border border-[#6BA84E]">
+              Monthly
+            </button>
+            <button id="yearlyBtn"
+              class="px-6 py-2 rounded-r-full bg-white text-[#6BA84E] font-semibold transition border border-[#6BA84E]">
+              Yearly
+            </button>
+          </div>
+
+          <!-- Subplan Dropdown -->
+          <select id="planDuration"
+            class="border border-[#6BA84E] text-[#121a0f] rounded-full px-4 py-2 bg-white text-sm font-medium shadow-sm">
+            <!-- Will be filled dynamically -->
+          </select>
+        </div>
+
+        <!-- Pricing Grid -->
+        <div class="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Basic -->
+          <div class="bg-white border border-[#d6e5d2] rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+            <h3 class="text-xl font-semibold text-[#121a0f] mb-2">Basic</h3>
+            <p id="priceBasic" class="text-2xl text-[#639155] font-bold mb-4">₹49</p>
+            <ul class="text-sm text-[#333] space-y-2 mb-6">
+              <li>✅ 4 orders/month</li>
+              <li class="validity-text">📅 1 month validity</li>
+              <li>👤 For individuals or small families</li>
+            </ul>
+            <button onclick="showQR('Basic')"
+              class="inline-block bg-[#3E7C47] text-white px-5 py-2 rounded-full font-semibold hover:bg-[#2e6237] transition">
+              Get Started
+            </button>
+          </div>
+
+          <!-- Standard -->
+          <div class="bg-[#EBF5E6] border-2 border-[#6BA84E] rounded-2xl p-6 shadow-md transform scale-105">
+            <div class="mb-2">
+              <span class="inline-block bg-[#6BA84E] text-white text-xs px-3 py-1 rounded-full">Most Popular</span>
+            </div>
+            <h3 class="text-xl font-semibold text-[#121a0f] mb-2">Standard</h3>
+            <p id="priceStandard" class="text-2xl text-[#639155] font-bold mb-4">₹79</p>
+            <ul class="text-sm text-[#333] space-y-2 mb-6">
+              <li>✅ 8 orders/month</li>
+              <li class="validity-text">📅 1 month validity</li>
+              <li>👨‍👩‍👧 Ideal for medium families</li>
+            </ul>
+            <button onclick="showQR('Standard')"
+              class="inline-block bg-[#6BA84E] text-white px-5 py-2 rounded-full font-semibold hover:bg-[#548a3c] transition">
+              Choose Plan
+            </button>
+          </div>
+
+          <!-- Premium -->
+          <div class="bg-white border border-[#d6e5d2] rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+            <h3 class="text-xl font-semibold text-[#121a0f] mb-2">Premium</h3>
+            <p id="pricePremium" class="text-2xl text-[#639155] font-bold mb-4">₹99</p>
+            <ul class="text-sm text-[#333] space-y-2 mb-6">
+              <li>✅ Unlimited orders</li>
+              <li class="validity-text">📅 1 month validity</li>
+              <li>👪 Great for large families & variety lovers</li>
+            </ul>
+            <button onclick="showQR('Premium')"
+              class="inline-block bg-[#3E7C47] text-white px-5 py-2 rounded-full font-semibold hover:bg-[#2e6237] transition">
+              Subscribe Now
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- QR Modal -->
+      <div id="qrModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white rounded-3xl p-6 md:p-8 shadow-2xl w-[90%] max-w-md relative border border-green-200">
+          <button onclick="toggleQRModal()"
+            class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-2xl font-bold">&times;</button>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-green-800 text-center mb-4">Scan to Pay</h2>
+          <div class="flex justify-center">
+            <!-- ✅ Updated src to point to /static/images/qr.JPG -->
+            <img src="/static/images/qr.JPG" alt="QR Code"
+              class="rounded-xl border border-gray-300 shadow-md w-64 h-64 object-contain" />
+          </div>
+          <p class="text-center mt-4 text-gray-600 text-sm">
+            Use any <span class="font-semibold text-green-700">UPI app</span> to scan and pay
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section class="bg-[#f9fbf9] px-6 py-10">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-bold text-[#121a0f] text-center mb-8">Frequently Asked
+          Questions</h2>
+
+        <div class="space-y-4">
+          <!-- FAQ Item 1 -->
+          <details class="group rounded-xl border border-[#d6e5d2] bg-white p-5 shadow transition">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="text-[#121a0f] font-medium text-base md:text-lg">How do I place an order?
+              </h3>
+              <svg class="w-5 h-5 text-[#121a0f] transition-transform duration-300 group-open:rotate-180" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="text-sm text-[#639155] mt-3 leading-relaxed">
+              Once you subscribe to a plan, go to the order page and choose your veggies. Just make
+              sure to place your order 48 hours in advance!
+            </p>
+          </details>
+
+          <!-- FAQ Item 2 -->
+          <details class="group rounded-xl border border-[#d6e5d2] bg-white p-5 shadow transition">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="text-[#121a0f] font-medium text-base md:text-lg">Can I change or cancel my
+                plan?</h3>
+              <svg class="w-5 h-5 text-[#121a0f] transition-transform duration-300 group-open:rotate-180" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="text-sm text-[#639155] mt-3 leading-relaxed">
+              Yes! You can cancel, upgrade, or pause your plan anytime from your account dashboard.
+            </p>
+          </details>
+
+          <!-- FAQ Item 3 -->
+          <details class="group rounded-xl border border-[#d6e5d2] bg-white p-5 shadow transition">
+            <summary class="flex items-center justify-between cursor-pointer">
+              <h3 class="text-[#121a0f] font-medium text-base md:text-lg">When will my order be ready
+                for pickup?</h3>
+              <svg class="w-5 h-5 text-[#121a0f] transition-transform duration-300 group-open:rotate-180" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <p class="text-sm text-[#639155] mt-3 leading-relaxed">
+              Orders placed 48 hours in advance will be ready at your selected pickup point on the
+              delivery day.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#f9fbf9] px-6 py-10">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white border border-[#d6e5d2] rounded-2xl shadow-sm p-6 md:p-8">
+          <h2 class="text-2xl font-bold text-[#121a0f] mb-4 flex items-center gap-2">
+            📜 Terms and Conditions
+          </h2>
+          <ul class="space-y-3 text-[#121a0f] text-base leading-relaxed list-disc pl-5">
+            <li>
+              📦 Bulk orders are subject to availability and stock limits at the pickup location.
+            </li>
+            <li>
+              ⏳ All orders must be placed at least <strong>48 hours in advance</strong> for guaranteed
+              processing.
+            </li>
+            <li>
+              🚫 Limit of <strong>1 order per 12 hours</strong> per subscription user unless otherwise
+              specified in your plan.
+            </li>
+            <li>
+              🧾 Prices are fixed for your selected plan duration and may not fluctuate.
+            </li>
+            <li>
+              📍 Pickup only at listed partner stores. Delivery is currently not available.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="flex justify-center">
+      <div class="flex max-w-[960px] flex-1 flex-col">
+        <footer class="flex flex-col gap-4 px-4 sm:px-8 py-8 text-center">
+
+          <div class="flex flex-wrap justify-center gap-4">
+            <a href="#">
+              <div class="text-[#639155]" data-icon="InstagramLogo" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path
+                    d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z">
+                  </path>
+                </svg>
+              </div>
+            </a>
+            <a href="#">
+              <div class="text-[#639155]" data-icon="TwitterLogo" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path
+                    d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z">
+                  </path>
+                </svg>
+              </div>
+            </a>
+            <a href="#">
+              <div class="text-[#639155]" data-icon="FacebookLogo" data-size="24px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor"
+                  viewBox="0 0 256 256">
+                  <path
+                    d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z">
+                  </path>
+                </svg>
+              </div>
+            </a>
+          </div>
+          <p class="text-[#639155] text-base font-normal leading-normal">© 2025 Seiyon Agri Connect. All
+            rights reserved.</p>
+        </footer>
+      </div>
+    </footer>
+
+  </div>
+
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+    });
+  </script>
+  <script>
+    const monthlyPricesMap = {
+      1: { Basic: 49, Standard: 79, Premium: 99 },
+      2: { Basic: 59, Standard: 89, Premium: 109 },
+      3: { Basic: 69, Standard: 99, Premium: 129 },
+      6: { Basic: 149, Standard: 199, Premium: 299 },
+      12: { Basic: 499, Standard: 799, Premium: 999 },
+      24: { Basic: 999, Standard: 1499, Premium: 1999 },
+      48: { Basic: 4999, Standard: 7999, Premium: 9999 },
+      96: { Basic: 9999, Standard: 14999, Premium: 19999 },
+      120: { Basic: 19999, Standard: 29999, Premium: 39999 },
+      240: { Basic: 49999, Standard: 69999, Premium: 99999 },
+    };
+
+    const priceBasic = document.getElementById("priceBasic");
+    const priceStandard = document.getElementById("priceStandard");
+    const pricePremium = document.getElementById("pricePremium");
+    const validityElements = document.querySelectorAll(".validity-text");
+
+    const monthlyBtn = document.getElementById("monthlyBtn");
+    const yearlyBtn = document.getElementById("yearlyBtn");
+    const planDuration = document.getElementById("planDuration");
+
+    let isMonthly = true;
+
+    function populateDropdown() {
+      planDuration.innerHTML = '';
+      const durations = Object.keys(monthlyPricesMap)
+        .filter(m => isMonthly ? m <= 12 : m >= 12)
+        .sort((a, b) => a - b);
+
+      durations.forEach(months => {
+        const option = document.createElement("option");
+        option.value = months;
+        option.textContent = isMonthly
+          ? `${months} month${months > 1 ? 's' : ''}`
+          : `${Math.floor(months / 12)} year${months >= 24 ? 's' : ''}`;
+        planDuration.appendChild(option);
+      });
+    }
+
+    function updatePrices() {
+      const selectedMonths = parseInt(planDuration.value);
+      const selectedPrices = monthlyPricesMap[selectedMonths] || monthlyPricesMap[1];
+
+      priceBasic.textContent = `₹${selectedPrices.Basic}`;
+      priceStandard.textContent = `₹${selectedPrices.Standard}`;
+      pricePremium.textContent = `₹${selectedPrices.Premium}`;
+
+      validityElements.forEach(el => {
+        el.textContent = isMonthly
+          ? `📅 ${selectedMonths} month${selectedMonths > 1 ? 's' : ''} validity`
+          : `📅 ${Math.floor(selectedMonths / 12)} year${selectedMonths >= 24 ? 's' : ''} validity`;
+      });
+    }
+
+    function setActiveToggle(monthly) {
+      isMonthly = monthly;
+
+      monthlyBtn.classList.toggle("bg-[#6BA84E]", monthly);
+      monthlyBtn.classList.toggle("text-white", monthly);
+      monthlyBtn.classList.toggle("bg-white", !monthly);
+      monthlyBtn.classList.toggle("text-[#6BA84E]", !monthly);
+
+      yearlyBtn.classList.toggle("bg-[#6BA84E]", !monthly);
+      yearlyBtn.classList.toggle("text-white", !monthly);
+      yearlyBtn.classList.toggle("bg-white", monthly);
+      yearlyBtn.classList.toggle("text-[#6BA84E]", monthly);
+
+      populateDropdown();
+      updatePrices();
+    }
+
+    // Event Listeners
+    monthlyBtn.onclick = () => setActiveToggle(true);
+    yearlyBtn.onclick = () => setActiveToggle(false);
+    planDuration.onchange = updatePrices;
+
+    function showQR(plan) {
+      document.getElementById("qrModal").classList.remove("hidden");
+      document.getElementById("qrModal").classList.add("flex");
+    }
+
+    function toggleQRModal() {
+      const modal = document.getElementById("qrModal");
+      modal.classList.toggle("hidden");
+    }
+
+    // Initialize default
+    setActiveToggle(true);
+  </script>
+
+
+
+</body>
+
+</html>
